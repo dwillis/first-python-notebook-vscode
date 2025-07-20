@@ -9,11 +9,11 @@ master_doc = "index"
 
 project = 'First Python Notebook'
 year = datetime.now().year
-copyright = f'{year} palewi.re'
+copyright = f'{year} Derek Willis'
 
 exclude_patterns = ["_build"]
 
-html_theme = "palewire"
+html_theme = "alabaster"
 html_sidebars = {
     '**': [
         'about.html',
