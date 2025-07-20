@@ -1,7 +1,7 @@
 from datetime import datetime
 
 extensions = [
-    "myst_nb",
+    "myst_parser",
     "sphinx_multitoc_numbering",
 ]
 source_suffix = ".md"
@@ -27,5 +27,3 @@ html_theme_options = {
 html_static_path = ['_static']
 
 pygments_style = 'sphinx'
-
-# jupyter_execute_notebooks = "off"
