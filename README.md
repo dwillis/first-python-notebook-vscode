@@ -1,6 +1,10 @@
-# First Python Notebook
+# First Python Notebook (VS Code Edition)
 
-A step-by-step guide to analyzing data with Python and the Jupyter notebook. Take the class at [firstpythonnotebook.org](http://www.firstpythonnotebook.org).
+A step-by-step guide to analyzing data with Python and Visual Studio Code. Take the class at [firstpythonnotebook.org](http://www.firstpythonnotebook.org).
+
+## Development Status
+
+⚠️ **Note**: This repository has been converted from Jupyter notebooks to VS Code. Some VS Code-specific screenshots are still needed. See `docs/src/_static/SCREENSHOT_REQUIREMENTS.md` for details on missing images.
 
 ### Links
 

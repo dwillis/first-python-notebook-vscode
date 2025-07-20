@@ -1,0 +1,27 @@
+[project]
+name = "first-python-notebook-vscode"
+version = "0.1.0"
+description = "A tutorial for learning Python data analysis with pandas"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "pandas>=1.5.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0", 
+    "jupyter>=1.0.0",
+    "altair>=4.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = []

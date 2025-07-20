@@ -1,7 +1,18 @@
 ---
 jupytext:
-  text_representation:
-    extension: .md
+  text_representatiThat's a nice start, but you'll notice you don't get much back. The data has been grouped, but we haven't chosen what to do with it yet. If we want the total by model, we can use the `size` method.
+
+```python
+# %%
+print(accident_list.groupby("latimes_make_and_model").size())
+```
+
+The result is much like `value_counts`, but we're allowed run to all kinds of statistical operations on the group, like `sum`, `mean` and `std`. For instance, we could sum up the number of fatalities for each maker by stringing that field on the end followed by the statistical method.
+
+```python
+# %%
+print(accident_list.groupby("latimes_make_and_model")["total_fatalities"].sum())
+```sion: .md
     format_name: myst
     format_version: '0.8'
     jupytext_version: '1.4.1'
@@ -21,17 +32,14 @@ The [`groupby`](https://pandas.pydata.org/pandas-docs/stable/reference/api/panda
 
 Let's use it to total up the accidents by helicopter make and model. You start by passing the field you want to group on to the function.
 
-```{code-cell}
-:tags: [hide-cell]
-
+```python
+# %%
 import pandas as pd
 accident_list = pd.read_csv("https://raw.githubusercontent.com/palewire/first-python-notebook/main/docs/src/_static/ntsb-accidents.csv")
 accident_list["latimes_make_and_model"] = accident_list["latimes_make_and_model"].str.upper()
-```
 
-```{code-cell}
-:tags: [show-input]
-accident_list.groupby("latimes_make_and_model")
+# Group by make and model
+print(accident_list.groupby("latimes_make_and_model"))
 ```
 
 That's a nice start, but you’ll notice you don’t get much back. The data has been grouped, but we haven’t chosen what to do with it yet. If we want the total by model, we can use the `size` method.
@@ -52,9 +60,10 @@ accident_list.groupby("latimes_make_and_model")["total_fatalities"].sum()
 
 You may notice that even though the result of a `groupby` has two columns, pandas does not return a clean-looking table the same way other operations like `head` do. In most instances, you can convert ugly tables like the ones above into a pretty DataFrame by tacking the `reset_index` method onto the end of your code.
 
-```{code-cell}
-:tags: [show-input]
-accident_list.groupby("latimes_make_and_model").size().reset_index()
+```python
+# %%
+result = accident_list.groupby("latimes_make_and_model").size().reset_index()
+print(result)
 ```
 
 Why doesn't `groupby` return a DataFrame? Why does `reset_index` have such a weird name?
@@ -65,23 +74,24 @@ As a beginner, you should just accept the oddities and keep moving. As you get m
 
 You can clean up the `0` column name assigned by pandas with the `rename` method.
 
-```{code-cell}
-:tags: [show-input]
-accident_list.groupby("latimes_make_and_model").size().rename("accidents").reset_index()
+```python
+# %%
+result = accident_list.groupby("latimes_make_and_model").size().rename("accidents").reset_index()
+print(result)
 ```
 
 Now save that as a variable.
 
-```{code-cell}
-:tags: [show-input]
+```python
+# %%
 accident_counts = accident_list.groupby("latimes_make_and_model").size().rename("accidents").reset_index()
 ```
 
 That will return a DataFrame with the accident totals we need to calculate a rate. Inspect it with `head`.
 
-```{code-cell}
-:tags: [show-input]
-accident_counts.head()
+```python
+# %%
+print(accident_counts.head())
 ```
 
 Now we‘ve got a ranking we can work with.

@@ -1,16 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: '0.8'
-    jupytext_version: '1.4.1'
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 # Sort
 
 <div class="responsive-iframe-container">
@@ -35,16 +22,16 @@ merged_list["per_100k_hours"] = (merged_list.accidents / merged_list.total_hours
 
 The [`sort_values`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_values.html) method is how pandas does it. It expects you to provide it with the name of the column to sort by in quotes. Try sorting by our computed field.
 
-```{code-cell}
-:tags: [show-input]
-merged_list.sort_values("per_100k_hours")
+```python
+# %%
+print(merged_list.sort_values("per_100k_hours"))
 ```
 
 Note that by default `sort_values` returns the DataFrame sorted in ascending order from lowest to highest. You can show the largest values first by passing in an optional keyword argument called `ascending`. When it is set to `False`, the DataFrame is sorted in descending order.
 
-```{code-cell}
-:tags: [show-input]
-merged_list.sort_values("per_100k_hours", ascending=False)
+```python
+# %%
+print(merged_list.sort_values("per_100k_hours", ascending=False))
 ```
 
 Congratulations. With that, you've re-created the heart of the analysis published in the Los Angeles Times and covered most of the basic skills necessary to access and analyze data with pandas.

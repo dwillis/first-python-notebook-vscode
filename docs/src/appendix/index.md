@@ -1,4 +1,15 @@
-```{include} ../_templates/nav.html
+```# Advanced installation
+
+While there are numerous ways to install and configure Python for data analysis, advanced users like to take advantage of modern Python tools to have more control over when and where code is installed on their system.
+
+This guide will demonstrate how to install everything your computer needs using either traditional tools like pipenv or modern alternatives like uv.
+
+```{contents} Sections
+  :depth: 1
+  :local:
+```
+
+## A command-line interface/_templates/nav.html
 ```
 
 # Advanced installation
@@ -49,6 +60,37 @@ Python 2.7.12
 ...then you have an outdated version of Python and will need to upgrade to a version starting with a 3. You can probably complete the class without doing so, but the maintainers of Python are gradually phasing out version 2 and officially recommend you upgrade.
 
 Instructions for both new installations and upgrades can be found [here](https://docs.python-guide.org/starting/installation/).
+
+## Package and environment managers
+
+Modern Python development benefits from using package managers that handle dependencies and virtual environments automatically. We'll cover two popular options: uv (recommended for new projects) and pipenv (traditional approach).
+
+### Option 1: uv (Recommended)
+
+[uv](https://docs.astral.sh/uv/) is a modern, fast Python package manager written in Rust that makes dependency management simple and reliable. It automatically handles virtual environments and is significantly faster than traditional tools.
+
+You can verify it's installed by typing the following into your terminal:
+
+```bash
+uv --version
+```
+
+If you don't have it installed, you can install it via:
+
+**On macOS and Linux:**
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+**On Windows:**
+```bash
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+**Alternative installation via pip:**
+```bash
+pip install uv
+```
 
 ## The `pipenv` environment manager
 
@@ -137,6 +179,21 @@ cd Code
 
 Now let's make a folder for your work in this class.
 
+#### Using uv (Recommended)
+
+If you're using uv, the process is streamlined:
+
+```bash
+uv init first-python-notebook
+cd first-python-notebook
+```
+
+This creates a new project directory with a `pyproject.toml` file that will track your dependencies.
+
+#### Using pipenv (Traditional)
+
+If you're using pipenv:
+
 ```bash
 mkdir first-python-notebook
 ```
@@ -155,7 +212,27 @@ It isn't necessary to change directories one level at a time. You can also speci
 cd Code/first-python-notebook
 ```
 
-### Install your first package
+## Python packages
+
+### Installing packages with uv
+
+If you're using uv, you can install all the required packages at once:
+
+```bash
+uv add pandas matplotlib seaborn jupyter altair
+```
+
+This will:
+- Create a virtual environment automatically
+- Install all the packages and their dependencies
+- Update your `pyproject.toml` file with the new dependencies
+- Generate a `uv.lock` file that locks exact versions
+
+### Installing packages with pipenv
+
+### Installing packages with pipenv
+
+If you're using pipenv, you can install each package individually or all at once.
 
 Now let's install a simple Python package to see `pipenv` in action. We’ll choose [yolk3k](https://pypi.org/project/yolk3k/), a simple command-line tool that can list all your installed python packages.
 
@@ -186,11 +263,9 @@ pipenv run yolk -l
 
 You should see the computer spit out everything you have installed. You’ll notice that yolk3k is on the list.
 
-## Python packages
+Next we will install the extra Python packages used during the tutorial with pipenv.
 
-Next we will install the extra Python packages used during the tutorial.
-
-We will return to pipenv and use it to install JupyterLab, the web-based interactive development environment for Jupyter notebooks, code and data.
+We will use pipenv to install JupyterLab, the web-based interactive development environment for Jupyter notebooks, code and data.
 
 ```bash
 pipenv install jupyterlab
@@ -216,7 +291,27 @@ pipenv install jupyterlab pandas altair
 ```
 ````
 
-## Your first notebook
+## Your first analysis environment
+
+### Using uv
+
+If you set up your project with uv, you can start working immediately. VS Code will automatically detect your project's virtual environment. Simply open VS Code in your project directory:
+
+```bash
+code .
+```
+
+Or open VS Code and use `File > Open Folder` to open your `first-python-notebook` directory.
+
+You can also run Python directly using uv:
+
+```bash
+uv run python
+```
+
+This will start a Python interpreter with all your installed packages available.
+
+### Using pipenv
 
 Now we can use pipenv's run command to start JupyterLab from your terminal.
 

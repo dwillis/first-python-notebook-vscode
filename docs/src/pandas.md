@@ -2,7 +2,7 @@
 jupytext:
   text_representation:
     extension: .md
-    format_name: myst
+    formaWe can start to get a look at its powers by converting that plain Python list into what pandas calls a [Series](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html). Here's how to make it happen in your next section. Let's stick with simple variables and name it `my_series`._name: myst
     format_versio   n: '0.8'
     jupytext_version: '1.4.1'
 kernelspec:
@@ -27,31 +27,25 @@ One third-party tool that's important for this class is called [pandas](http://p
 
 ## Import pandas
 
-Create a new cell at the top of your notebook where we will import pandas for our use. Type in the following and hit the play button.
+Add the following to your Python file (or create a new cell if you're using the interactive mode). Type in the following and run it:
 
-```{code-cell}
-:tags: [hide-cell]
-
-my_list = [1, 3, 5, 7, 9, 999]
-```
-
-```{code-cell}
+```python
+# %%
 import pandas
 ```
 
 If nothing happens, that's good. It means you have pandas installed and ready to use.
 
 ```{note}
-Since pandas is created by a third party independent from the core Python developers, it wouldn't be installed by default if you followed our [advanced installation](/appendix/index.md) instructions.
+Since pandas is created by a third party independent from the core Python developers, it wouldn't be installed by default in a basic Python installation.
 
-It's available to you because the JupyterLab Desktop developers have pre-selected a curated list of common utilities to include with the package, another reason to love their easy installer.
-
-If your notebook doesn't have pandas, you can install it by running `%pip install pandas` in a cell. This will download and install the library using the [pip](https://pip.pypa.io/en/stable/) package manager and Jupyter's built-in [magic command](https://ipython.readthedocs.io/en/stable/interactive/magics.html).
+If you followed the VS Code setup chapter and used uv to set up your project, pandas should already be installed. If your Python environment doesn't have pandas, you can install it by opening the VS Code terminal (`View > Terminal`) and running `uv add pandas` (if using uv) or `pip install pandas` (if using pip).
 ```
 
-Return to the cell with the import and rewrite it like this.
+Return to your import section and rewrite it like this:
 
-```{code-cell}
+```python
+# %%
 import pandas as pd
 ```
 
@@ -71,13 +65,19 @@ As we saw with the list in the last chapter, Python can do quite a bit on its ow
 
 We can start to get a look at its powers by converting that plain Python list into what pandas calls a [Series](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html). Here's how to make it happen in your next cell. Let’s stick with simple variables and name it `my_series`.
 
-```{code-cell}
+```python
+# %%
+# Create a list of numbers (from previous chapter)
+my_list = [1, 3, 5, 7, 9, 999]
+
+# Convert it to a pandas Series
 my_series = pd.Series(my_list)
+print(my_series)
 ```
 
 Once the data becomes a Series, you can immediately run a wide range of [descriptive statistics](https://en.wikipedia.org/wiki/Descriptive_statistics). Let's try a few.
 
-How about summing all the numbers? Make a new cell and run this. It should spit out the total, just like the `sum()` function in the last chapter.
+How about summing all the numbers? Add this to your next section and run it. It should output the total, just like the `sum()` function from the last chapter.
 
 ```{code-cell}
 :tags: [show-input]

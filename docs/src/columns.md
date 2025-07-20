@@ -1,6 +1,20 @@
 ---
 jupytext:
-  text_representation:
+  texWe'll begin with the `latimes_makThere's another built-in pandas tool that will total up the frequency of values in a column. The method is called [`value_counts`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.value_counts.html) and it's just as easy to use as `sum`, `min` or `max`. All you need to do it is add a period after the column name and chain it on the tail end of your code.
+
+```python
+# %%
+print(accident_list["latimes_make_and_model"].value_counts())
+```model` column, which records the standardized name of each helicopter that crashed. To access its contents separate from the rest of the DataFrame, append a pair of square brackets with the column's name in quotes inside. 
+
+```python
+# %%
+import pandas as pd
+accident_list = pd.read_csv("https://raw.githubusercontent.com/palewire/first-python-notebook/main/docs/src/_static/ntsb-accidents.csv")
+
+# Access a specific column
+print(accident_list["latimes_make_and_model"])
+```ion:
     extension: .md
     format_name: myst
     format_version: '0.8'
@@ -62,18 +76,18 @@ In this case, we can use the `str` method, which is short for string. In many co
 
 You can access it by chaining `.str` and your desired manipulation method after the column name. In this case, we want to use the `upper` method, which will convert all of the text in the column to uppercase.
 
-```{code-cell}
-:tags: [show-input]
-
-accident_list["latimes_make_and_model"].str.upper()
+```python
+# %%
+print("Converting to uppercase:")
+print(accident_list["latimes_make_and_model"].str.upper())
 ```
 
 While it's not useful in this case, we can try out the companion `lower` method to see it do the opposite.
 
-```{code-cell}
-:tags: [show-input]
-
-accident_list["latimes_make_and_model"].str.lower()
+```python
+# %%
+print("Converting to lowercase:")
+print(accident_list["latimes_make_and_model"].str.lower())
 ```
 
 ```{note}
@@ -82,18 +96,18 @@ You can find a full list of `str` methods, along with useful examples, in the [p
 
 To correct the bug, we need to assign the result of the `upper` method to our existing column and overwrite what's there. We can do that with the `=` operator.
 
-```{code-cell}
-:tags: [show-input]
-
+```python
+# %%
 accident_list["latimes_make_and_model"] = accident_list["latimes_make_and_model"].str.upper()
+print("Column has been converted to uppercase")
 ```
 
 Now we can run `value_counts` again to see if the problem has been fixed.
 
-```{code-cell}
-:tags: [show-input]
-
-accident_list["latimes_make_and_model"].value_counts()
+```python
+# %%
+print("Value counts after cleaning:")
+print(accident_list["latimes_make_and_model"].value_counts())
 ```
 
 Much better! We have a clean list of helicopter models and their frequencies.

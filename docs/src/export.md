@@ -1,23 +1,31 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: '0.8'
-    jupytext_version: '1.4.1'
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 # Export
 
 <div class="responsive-iframe-container">
     <iframe class="responsive-iframe" src="https://www.youtube.com/embed/m9LTVLETSeo?si=XqHQp8XQ91hP90wm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-Saving the dataframes you’ve created to your computer requires one final pandas method. It’s [`to_csv`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html), an exporting companion to `read_csv`. Append it to any dataframe and provide a filepath. That's all it takes.
+Saving the dataframes you've created to your computer requires one final pandas method. It's [`to_csv`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html), an exporting companion to `read_csv`. Append it to any dataframe and provide a filepath. That's all it takes.
+
+```python
+# %%
+# Setup data for export examples
+import pandas as pd
+accident_list = pd.read_csv("https://raw.githubusercontent.com/palewire/first-python-notebook/main/docs/src/_static/ntsb-accidents.csv")
+accident_list['latimes_make_and_model'] = accident_list['latimes_make_and_model'].str.upper()
+accident_counts = accident_list.groupby(["latimes_make", "latimes_make_and_model"]).size().reset_index().rename(columns={0: "accidents"})
+survey = pd.read_csv("https://raw.githubusercontent.com/palewire/first-python-notebook/main/docs/src/_static/faa-survey.csv")
+survey['latimes_make_and_model'] = survey['latimes_make_and_model'].str.upper()
+merged_list = pd.merge(accident_counts, survey, on="latimes_make_and_model")
+merged_list['per_hour'] = merged_list.accidents / merged_list.total_hours
+merged_list['per_100k_hours'] = (merged_list.accidents / merged_list.total_hours) * 100_000
+print("Data prepared for export")
+```
+
+```python
+# %%
+merged_list.to_csv("accident-rate-ranking.csv")
+print("Data exported to accident-rate-ranking.csv")
+```
 
 ```{code-cell}
 :tags: [hide-cell]
@@ -49,9 +57,10 @@ Interested in learning more about how to publish data online? Check out ["First 
 
 The `to_csv()` method accepts several optional arguments. The most important one is the filename input, which is used to specify the path and name of the file that will be created. The `index=False` keyword argument tells pandas to exclude the index column of the DataFrame. You can also specify the separator by passing the `sep` parameter.
 
-
-```{code-cell}
+```python
+# %%
 merged_list.to_csv("accident-rate-ranking.csv", index=False, sep=";")
+print("Data exported with custom options (no index, semicolon separator)")
 ```
 
 This will create a CSV file without the index with semicolons as the separator between values.

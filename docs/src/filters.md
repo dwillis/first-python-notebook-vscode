@@ -1,16 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: '0.8'
-    jupytext_version: '1.4.1'
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
 # Filter
 
 <div class="responsive-iframe-container">
@@ -25,46 +12,48 @@ If you are familiar with writing [SQL](https://en.wikipedia.org/wiki/SQL) to man
 
 Let's try filtering against the `state` field. Save a state's postal code into a variable. This will allow us to reuse it later.
 
-```{code-cell}
-:tags: [hide-cell]
-
+```python
+# %%
 import pandas as pd
 accident_list = pd.read_csv("https://raw.githubusercontent.com/palewire/first-python-notebook/main/docs/src/_static/ntsb-accidents.csv")
 accident_list["latimes_make_and_model"] = accident_list["latimes_make_and_model"].str.upper()
-```
 
-```{code-cell}
-:tags: [show-input]
+# Set a state to filter by
 my_state = "IA"
+print(f"Filtering data for state: {my_state}")
 ```
 
-In the next cell we will ask pandas to narrow down our list of accidents to just those in our state of interest. We will create a filter expression and place it between two square brackets following the DataFrame we wish to filter.
+In the next section we will ask pandas to narrow down our list of accidents to just those in our state of interest. We will create a filter expression and place it between two square brackets following the DataFrame we wish to filter.
 
-```{code-cell}
-:tags: [show-input]
-accident_list[accident_list["state"] == my_state]
+```python
+# %%
+filtered_accidents = accident_list[accident_list["state"] == my_state]
+print(filtered_accidents)
 ```
 
 Now we should save the results of that filter into a new variable separate from the full list we imported from the CSV file. Since it includes only accidents in our chosen state, let’s call it `my_accidents`.
 
-```{code-cell}
-:tags: [show-input]
+```python
+# %%
 my_accidents = accident_list[accident_list["state"] == my_state]
+print(f"Found {len(my_accidents)} accidents in {my_state}")
 ```
 
 To check our work and find out how many records are left after the filter, let's run the DataFrame inspection commands we learned earlier.
 
 First `head`.
 
-```{code-cell}
-:tags: [show-input]
-my_accidents.head()
+```python
+# %%
+print("First few accidents in the filtered data:")
+print(my_accidents.head())
 ```
 
 Then `info`.
 
-```{code-cell}
-:tags: [show-input]
+```python
+# %%
+print("Information about the filtered data:")
 my_accidents.info()
 ```
 

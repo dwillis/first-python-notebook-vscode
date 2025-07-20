@@ -7,17 +7,23 @@ How to propose changes to this repository.
 Fork the repository and clone it:
 
 ```bash
-gh repo clone your-name/first-python-notebook
+gh repo clone your-name/first-python-notebook-vscode
 ```
 
 Change into the project directory:
 
 ```bash
-cd first-python-notebook
+cd first-python-notebook-vscode
 ```
 
-Install the dependencies using pipenv:
+Install the dependencies using uv (recommended) or pipenv:
 
+**Using uv:**
+```bash
+uv sync
+```
+
+**Using pipenv:**
 ```bash
 pipenv install
 ```
