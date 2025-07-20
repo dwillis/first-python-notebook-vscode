@@ -15,11 +15,7 @@ help:
 .PHONY: help Makefile
 
 livehtml:
-	sphinx-autobuild --ignore=`pwd`/jupyter_execute \
-	--ignore=`pwd`/_build/jupyter_execute \
-	--ignore=`pwd`/_build_html/jupyter_execute \
-	-b html \
-	./src ./_build_html
+	sphinx-autobuild -b html ./src ./_build_html
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
