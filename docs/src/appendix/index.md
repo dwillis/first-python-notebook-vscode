@@ -1,4 +1,8 @@
-```# Advanced installation
+# Advanced installation
+
+While there are numerous ways to install and configure Python for data analysis, advanced users like to take advantage of modern Python tools to have more control over when and where code is installed on their system.
+
+This guide will demonstrate how to install everything your computer needs using either traditional tools like pipenv or modern alternatives like uv.llation
 
 While there are numerous ways to install and configure Python for data analysis, advanced users like to take advantage of modern Python tools to have more control over when and where code is installed on their system.
 
@@ -94,7 +98,7 @@ pip install uv
 
 ## The `pipenv` environment manager
 
-Our notebook depends on a set of Python tools that we'll need to install before we can run the code. They are the [JupyterLab](https://jupyter.org/) computational notebook, the [requests](https://docs.python-requests.org/en/latest/) library for downloading webpages and [BeautifulSoup](https://beautiful-soup-4.readthedocs.io/en/latest/), a handy utility for parsing data out of HTML. 
+Our tutorial depends on a set of Python tools that we'll need to install before we can run the code. They include [pandas](https://pandas.pydata.org/) for data manipulation, [matplotlib](https://matplotlib.org/) and [seaborn](https://seaborn.pydata.org/) for plotting, and [altair](https://altair-viz.github.io/) for interactive visualizations. 
 
 By default, Python's third-party packages are all installed in a shared "global" folder somewhere in the depths of your computer. By default, every Python project on your computer draws from this same set of installed programs.
 
@@ -219,7 +223,7 @@ cd Code/first-python-notebook
 If you're using uv, you can install all the required packages at once:
 
 ```bash
-uv add pandas matplotlib seaborn jupyter altair
+uv add pandas matplotlib seaborn altair
 ```
 
 This will:
@@ -265,29 +269,35 @@ You should see the computer spit out everything you have installed. You’ll not
 
 Next we will install the extra Python packages used during the tutorial with pipenv.
 
-We will use pipenv to install JupyterLab, the web-based interactive development environment for Jupyter notebooks, code and data.
+We will use pipenv to install pandas, the powerful data manipulation library:
 
 ```bash
-pipenv install jupyterlab
-```
-
-We'll install pandas the same way:
-
-```python
 pipenv install pandas
 ```
 
-Install altair too.
+We'll install matplotlib for basic plotting:
 
-```python
+```bash
+pipenv install matplotlib
+```
+
+Add seaborn for statistical visualizations:
+
+```bash
+pipenv install seaborn
+```
+
+Install altair for interactive charts:
+
+```bash
 pipenv install altair
 ```
 
-````{note}
-You can install more than one package at once. For instance, all three of the packages above could be added like so:
+```{note}
+You can install more than one package at once. For instance, all four of the packages above could be added like so:
 
 ```bash
-pipenv install jupyterlab pandas altair
+pipenv install pandas matplotlib seaborn altair
 ```
 ````
 
@@ -313,15 +323,16 @@ This will start a Python interpreter with all your installed packages available.
 
 ### Using pipenv
 
-Now we can use pipenv's run command to start JupyterLab from your terminal.
+Now you can use pipenv's run command to start a Python interpreter from your terminal:
 
 ```bash
-pipenv run jupyter lab
+pipenv run python
 ```
 
-That will open up a new tab in your default web browser that looks something like this:
+This will start an interactive Python session with all your installed packages available. You can also open VS Code in your project directory and it will detect your pipenv environment:
 
-```{image} /_static/jupyterlabdesktop.png
+```bash
+code .
 ```
 
-Click the "Python 3" button in the middle panel and create a new Python 3 notebook. You should now be able to pick up in [chapter two](../notebook.md) and start work from there.
+Once VS Code is open, you can create Python files and run them interactively using the `# %%` cell markers. You should now be able to pick up with the [VS Code tutorial](../notebook.md) and start working from there.
