@@ -7,9 +7,9 @@ extensions = [
 source_suffix = ".md"
 master_doc = "index"
 
-project = 'First Python Notebook'
+project = 'First Python Notebook VSCode'
 year = datetime.now().year
-copyright = f'{year} Derek Willis'
+copyright = f'{year}  Derek Willis'
 
 exclude_patterns = ["_build"]
 
@@ -21,7 +21,7 @@ html_sidebars = {
     ]
 }
 html_theme_options = {
-    "canonical_url": f"https://palewi.re/docs/first-python-notebook/",
+    "canonical_url": f"https://first-python-notebook-vscode.readthedocs.io",
 }
 
 html_static_path = ['_static']
