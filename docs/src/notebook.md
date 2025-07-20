@@ -202,6 +202,12 @@ The notebook interface in VS Code allows you to:
 - Export to various formats
 - Use VS Code's powerful editing features
 
+```{note}
+This tutorial includes a complete collection of interactive Jupyter notebooks that you can run directly in VS Code. You can find them in the [Interactive Notebooks](notebooks/index.md) section. These notebooks contain the same content as the tutorial chapters but in an interactive format where you can run the code and see the results immediately.
+```
+
 ## Next Steps
 
 Once you've got the hang of running Python code in VS Code, you're ready to introduce pandas, the powerful Python analysis library that can do a whole lot more than add a few numbers together.
+
+You can continue with the traditional tutorial chapters or jump directly to the [Interactive Notebooks](notebooks/index.md) for a hands-on experience.

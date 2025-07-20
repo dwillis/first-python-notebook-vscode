@@ -2,14 +2,14 @@
 
 [Visual Studio Code](https://code.visualstudio.com/) is a free, open-source code editor developed by Microsoft. It has become one of the most popular development environments for Python programming, offering excellent support for data analysis, debugging, and interactive computing.
 
-VS Code provides an integrated experience for Python development that combines the best of traditional code editing with interactive features similar to Jupyter notebooks. You can write Python scripts, create and run Jupyter notebooks directly in the editor, and leverage powerful debugging and version control tools all in one place.
+VS Code provides an integrated experience for Python development that combines the best of traditional code editing with full Jupyter notebook support. You can create and run Jupyter notebooks directly in the editor, write Python scripts with interactive cells, and leverage powerful debugging and version control tools all in one place.
 
 It is used by [data scientists](https://code.visualstudio.com/docs/python/data-science-tutorial), [researchers](https://code.visualstudio.com/docs/python/jupyter-support), [developers](https://code.visualstudio.com/docs/python/python-tutorial), and journalists to analyze data and create reproducible research.
 
 Examples of data journalism projects that could be developed using VS Code include:
 
-* Data analysis scripts for investigating public records
-* Interactive notebooks for exploratory data analysis  
+* Jupyter notebooks for investigating public records
+* Interactive data exploration and analysis
 * Automated data processing pipelines
 * Version-controlled research projects
 * Collaborative data investigations using Git integration
@@ -62,7 +62,7 @@ This extension provides:
 
 ## Install Jupyter Extension
 
-Since we'll be working with some notebook-style features, also install the Jupyter extension:
+Since we'll be working with Jupyter notebooks, also install the Jupyter extension:
 
 1. In the Extensions panel, search for "Jupyter"
 2. Find the official Jupyter extension by Microsoft
@@ -71,10 +71,11 @@ Since we'll be working with some notebook-style features, also install the Jupyt
 ![Jupyter extension](/_static/jupyter-extension.png)
 
 This extension enables:
-- Jupyter notebook (.ipynb) support directly in VS Code
+- Full Jupyter notebook (.ipynb) support directly in VS Code
 - Interactive Python cells in .py files
 - Variable explorer
 - Data viewer for pandas DataFrames
+- Notebook diffing and merge capabilities
 
 ## Set Up Python Environment
 
@@ -158,7 +159,7 @@ uv is much faster than pip and provides better dependency resolution. It automat
 
 ## Your First Interactive Session
 
-VS Code supports interactive Python development in several ways. If you set up your project with uv, make sure you're working in the project directory:
+VS Code supports multiple ways to work with Python and Jupyter notebooks. If you set up your project with uv, make sure you're working in the project directory:
 
 ```bash
 cd first-python-notebook
@@ -178,7 +179,7 @@ print(f"2 + 2 = {x}")
 
 3. Click "Run Cell" above the `# %%` comment
 
-This will open an Interactive Window where you can see the output, similar to a Jupyter notebook but integrated into VS Code.
+This will open an Interactive Window where you can see the output, providing an interactive development experience integrated into VS Code.
 
 ### Jupyter Notebooks in VS Code
 
@@ -188,6 +189,11 @@ You can also create traditional Jupyter notebooks:
 2. Type "Jupyter: Create New Jupyter Notebook"
 3. Press Enter
 
-This creates a new notebook file where you can add cells and run them interactively.
+This creates a new `.ipynb` notebook file where you can add cells and run them interactively. VS Code provides the full notebook experience including:
+- Rich output display (plots, tables, HTML)
+- Variable explorer
+- Kernel management
+- Cell execution controls
+- Markdown and code cells
 
-Now you're ready to start learning Python for data analysis! The next chapter will introduce you to the basics of working with code in VS Code.
+Now you're ready to start learning Python for data analysis! The next chapter will introduce you to working with Jupyter notebooks in VS Code.

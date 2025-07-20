@@ -2,12 +2,24 @@
 
 A step-by-step guide to analyzing data with Python and Visual Studio Code. Take the class at [firstpythonnotebook.org](http://www.firstpythonnotebook.org).
 
-## Development Status
+## Tutorial Formats
 
-⚠️ **Note**: This repository has been converted from Jupyter notebooks to VS Code. Some VS Code-specific screenshots are still needed. See `docs/src/_static/SCREENSHOT_REQUIREMENTS.md` for details on missing images.
+This tutorial is available in **two formats**:
 
-### Links
+1. **📖 Traditional chapters**: Step-by-step markdown documentation for reading and reference
+2. **📓 Interactive notebooks**: Complete collection of Jupyter notebooks for hands-on learning in VS Code
 
-* [More about this class](https://palewi.re/docs/first-python-notebook/about.html)
-* [How to contribute](https://github.com/palewire/first-python-notebook/blob/main/CONTRIBUTING.md)
-* [Other classes in this series](https://palewi.re/docs/)
+Both formats cover the same content - choose the approach that works best for your learning style!
+
+## Quick Start
+
+1. **Install VS Code** with Python and Jupyter extensions
+2. **Set up your environment** using [uv](https://docs.astral.sh/uv/):
+   ```bash
+   uv init first-python-notebook
+   cd first-python-notebook  
+   uv add pandas matplotlib seaborn jupyter altair
+   ```
+3. **Choose your path**:
+   - Follow the [traditional tutorial](https://firstpythonnotebook.org) 
+   - Or dive into the [interactive notebooks](docs/src/notebooks/)

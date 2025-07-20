@@ -13,6 +13,10 @@ kernelspec:
 
 # Pandas
 
+```{note}
+**Interactive Version Available**: This chapter is also available as an interactive Jupyter notebook. You can find it in the [Interactive Notebooks](notebooks/index.md) section as `pandas.ipynb`. The notebook version allows you to run the code directly and experiment with the examples.
+```
+
 <div class="responsive-iframe-container">
     <iframe class="responsive-iframe" src="https://www.youtube.com/embed/6Bi3NS3fBk0?si=TGmkKNwl0jbvDHhO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>

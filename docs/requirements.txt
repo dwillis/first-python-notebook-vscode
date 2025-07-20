@@ -1,3 +1,9 @@
-myst-parser
+myst-nb
 sphinx-multitoc-numbering
+palewire
 sphinx-autobuild
+jupyter
+pandas
+matplotlib
+seaborn
+altair

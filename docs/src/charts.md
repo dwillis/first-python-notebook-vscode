@@ -1,5 +1,9 @@
 # Charts
 
+```{note}
+**Interactive Version Available**: This chapter is also available as an interactive Jupyter notebook. You can find it in the [Interactive Notebooks](notebooks/index.md) section as `charts.ipynb`. The notebook version allows you to run the code directly and see the visualizations immediately.
+```
+
 Python has a number of charting tools that can work hand-in-hand with pandas. While [Altair](https://altair-viz.github.io/) is a relatively new package compared to classics like [matplotlib](https://matplotlib.org/), it has great documentation and is easy to configure. Let's take it for a spin.
 
 ## Make a basic bar chart

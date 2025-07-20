@@ -98,7 +98,7 @@ pip install uv
 
 ## The `pipenv` environment manager
 
-Our tutorial depends on a set of Python tools that we'll need to install before we can run the code. They include [pandas](https://pandas.pydata.org/) for data manipulation, [matplotlib](https://matplotlib.org/) and [seaborn](https://seaborn.pydata.org/) for plotting, and [altair](https://altair-viz.github.io/) for interactive visualizations. 
+Our tutorial depends on a set of Python tools that we'll need to install before we can run the code. They include [pandas](https://pandas.pydata.org/) for data manipulation, [matplotlib](https://matplotlib.org/) and [seaborn](https://seaborn.pydata.org/) for plotting, [Jupyter](https://jupyter.org/) for notebook support, and [altair](https://altair-viz.github.io/) for interactive visualizations. 
 
 By default, Python's third-party packages are all installed in a shared "global" folder somewhere in the depths of your computer. By default, every Python project on your computer draws from this same set of installed programs.
 
@@ -223,7 +223,7 @@ cd Code/first-python-notebook
 If you're using uv, you can install all the required packages at once:
 
 ```bash
-uv add pandas matplotlib seaborn altair
+uv add pandas matplotlib seaborn jupyter altair
 ```
 
 This will:
@@ -287,6 +287,12 @@ Add seaborn for statistical visualizations:
 pipenv install seaborn
 ```
 
+Install Jupyter for notebook support:
+
+```bash
+pipenv install jupyter
+```
+
 Install altair for interactive charts:
 
 ```bash
@@ -294,10 +300,10 @@ pipenv install altair
 ```
 
 ```{note}
-You can install more than one package at once. For instance, all four of the packages above could be added like so:
+You can install more than one package at once. For instance, all five of the packages above could be added like so:
 
 ```bash
-pipenv install pandas matplotlib seaborn altair
+pipenv install pandas matplotlib seaborn jupyter altair
 ```
 ````
 
@@ -323,16 +329,22 @@ This will start a Python interpreter with all your installed packages available.
 
 ### Using pipenv
 
-Now you can use pipenv's run command to start a Python interpreter from your terminal:
+Now you can use pipenv's run command to start a Jupyter notebook server from your terminal:
 
 ```bash
-pipenv run python
+pipenv run jupyter notebook
 ```
 
-This will start an interactive Python session with all your installed packages available. You can also open VS Code in your project directory and it will detect your pipenv environment:
+Or launch Jupyter Lab for a more modern interface:
+
+```bash
+pipenv run jupyter lab
+```
+
+You can also open VS Code in your project directory and it will detect your pipenv environment:
 
 ```bash
 code .
 ```
 
-Once VS Code is open, you can create Python files and run them interactively using the `# %%` cell markers. You should now be able to pick up with the [VS Code tutorial](../notebook.md) and start working from there.
+Once VS Code is open, you can create Jupyter notebooks directly in the editor and run them with the full notebook experience. You should now be able to pick up with the [VS Code tutorial](../notebook.md) and start working from there.
