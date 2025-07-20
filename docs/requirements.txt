@@ -1,6 +1,5 @@
 myst-nb
 sphinx-multitoc-numbering
-palewire
 sphinx-autobuild
 jupyter
 pandas
