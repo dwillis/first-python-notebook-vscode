@@ -348,3 +348,70 @@ code .
 ```
 
 Once VS Code is open, you can create Jupyter notebooks directly in the editor and run them with the full notebook experience. You should now be able to pick up with the [VS Code tutorial](../notebook.md) and start working from there.
+
+## Troubleshooting Python Environments and Kernels
+
+If you're experiencing issues with importing packages or running code, the problem is often related to Python environment or kernel selection. Here are the most common issues and solutions:
+
+### "ModuleNotFoundError: No module named 'pandas'" (or other packages)
+
+**Cause**: VS Code is using a different Python environment than where you installed packages.
+
+**Solutions**:
+1. **Check Python Interpreter** (for .py files):
+   - Press `Ctrl+Shift+P` → "Python: Select Interpreter"
+   - Choose the interpreter where you installed packages
+   - Verify in the status bar (bottom-left of VS Code)
+
+2. **Check Jupyter Kernel** (for .ipynb files):
+   - Click kernel name in top-right of notebook
+   - Select the same Python environment where packages are installed
+   - Look for kernel paths matching your installation method (uv, conda, etc.)
+
+### Kernel Won't Start or Keeps Disconnecting
+
+**Solutions**:
+1. **Refresh Python Interpreters**:
+   - Press `Ctrl+Shift+P` → "Python: Refresh"
+   - Try selecting kernel again
+
+2. **Restart VS Code**:
+   - Close and reopen VS Code
+   - Reopen your notebook and select kernel
+
+3. **Check Python Installation**:
+   - Ensure Python and jupyter are properly installed
+   - For uv users: run `uv add jupyter` in your project
+   - For conda users: run `conda install jupyter`
+
+### Multiple Python Installations Confusion
+
+**If you have conda, uv, and system Python**:
+1. **Decide on one approach** for this tutorial
+2. **Install all packages in the same environment**
+3. **Always select the matching interpreter/kernel**
+4. **Use consistent commands** (don't mix `pip`, `conda`, and `uv`)
+
+### Environment Path Issues
+
+**Check these common locations**:
+- **uv projects**: Look for `.venv` folder in your project directory
+- **conda**: Look for `anaconda3` or `miniconda3` in paths
+- **system Python**: Usually `/usr/bin/python` or `/usr/local/bin/python`
+
+### Quick Verification Steps
+
+Before running tutorial code:
+1. **Open a new terminal in VS Code** (`View > Terminal`)
+2. **Test imports**:
+   ```python
+   python -c "import pandas; print('✅ pandas works')"
+   python -c "import matplotlib; print('✅ matplotlib works')"
+   python -c "import jupyter; print('✅ jupyter works')"
+   ```
+3. **If any fail**: Reinstall packages in your current environment
+4. **Match VS Code selection**: Ensure interpreter/kernel matches this environment
+
+```{tip}
+**Golden Rule**: The Python interpreter (status bar) and Jupyter kernel (notebook top-right) should always point to the same environment where you installed pandas, matplotlib, seaborn, and altair.
+```

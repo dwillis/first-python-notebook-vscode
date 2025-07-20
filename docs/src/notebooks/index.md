@@ -14,9 +14,15 @@ Make sure you've completed the [VS Code Setup](../vscode_setup.md) before starti
 
 1. **Download or clone** this repository to your local machine
 2. **Open VS Code** and navigate to the project folder
-3. **Open any notebook** by clicking on the `.ipynb` files in the `docs/src/notebooks/` directory
-4. **Run cells sequentially** by clicking the play button or pressing `Shift+Enter`
-5. **Experiment** by modifying the code and running your changes
+3. **Select the correct Python environment** in VS Code (see [setup guide](../vscode_setup.md))
+4. **Open any notebook** by clicking on the `.ipynb` files in the `docs/src/notebooks/` directory
+5. **Choose the right kernel** when prompted (should match your Python environment with packages installed)
+6. **Run cells sequentially** by clicking the play button or pressing `Shift+Enter`
+7. **Experiment** by modifying the code and running your changes
+
+```{important}
+**Before running any notebook**: Make sure you've selected the correct Python kernel (top-right corner of the notebook). It should be the same environment where you installed pandas, matplotlib, seaborn, and altair. If you see import errors, double-check your kernel selection.
+```
 
 Each notebook is self-contained and includes all necessary imports and data loading, so you can start with any chapter that interests you.
 

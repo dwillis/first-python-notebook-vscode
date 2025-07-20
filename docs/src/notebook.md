@@ -16,6 +16,14 @@ Let's start by creating your first Python file. In VS Code:
 
 ```{note}
 If VS Code prompts you to select a Python interpreter, choose the Python installation you set up in the previous chapter. This tells VS Code which Python environment to use when running your code.
+
+**How to select the right interpreter:**
+1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+2. Type "Python: Select Interpreter"  
+3. Choose the Python installation where you installed packages (pandas, matplotlib, etc.)
+4. Look for the interpreter path that matches your setup (e.g., `.venv`, `anaconda3`, or system Python)
+
+The selected interpreter will be shown in the bottom-left status bar of VS Code.
 ```
 
 Now you're ready to write your first line of Python code. VS Code provides an excellent environment for both learning and professional Python development.
@@ -195,12 +203,46 @@ In addition to interactive Python files, VS Code also supports traditional Jupyt
 
 This creates a notebook file where you can add both code and markdown cells, just like in traditional Jupyter environments, but with all the benefits of VS Code's editor features.
 
+### Selecting the Right Kernel
+
+When you create or open a notebook, you need to select a Python kernel (the engine that runs your code):
+
+1. **Automatic Selection**: VS Code may automatically select a kernel based on your workspace
+2. **Manual Selection**: Click the kernel name in the **top-right corner** of the notebook
+3. **Choose Your Kernel**: Select the Python environment where you installed your packages:
+   - Look for the same Python path you selected as your interpreter
+   - If using uv: Choose the kernel from your project's `.venv` folder
+   - If using Anaconda: Choose the anaconda/miniconda kernel
+   - The kernel name should show the Python version and environment path
+
+4. **Verify Connection**: A green dot next to the kernel name means it's connected and ready to run code
+
+### Common Kernel Issues and Solutions
+
+**Problem**: "ModuleNotFoundError" when importing pandas or other packages
+
+**Solution**: 
+1. Check that you're using the correct kernel (top-right of notebook)
+2. Verify packages are installed in that environment
+3. Restart the kernel: Click kernel name → "Restart Kernel"
+
+**Problem**: Kernel won't start or keeps disconnecting
+
+**Solution**:
+1. Use Command Palette → "Python: Refresh"
+2. Try selecting a different kernel, then switch back
+3. Close and reopen the notebook file
+
 The notebook interface in VS Code allows you to:
 - Add code and markdown cells
 - Run cells individually or all at once
 - View rich output including plots and tables
 - Export to various formats
 - Use VS Code's powerful editing features
+
+```{tip}
+**Quick Check**: Before running any code, make sure the kernel name in the top-right shows the same Python environment where you installed your packages. This prevents import errors and ensures your code runs correctly.
+```
 
 ```{note}
 This tutorial includes a complete collection of interactive Jupyter notebooks that you can run directly in VS Code. You can find them in the [Interactive Notebooks](notebooks/index.md) section. These notebooks contain the same content as the tutorial chapters but in an interactive format where you can run the code and see the results immediately.
