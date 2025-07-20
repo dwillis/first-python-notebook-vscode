@@ -2,21 +2,12 @@
 
 While there are numerous ways to install and configure Python for data analysis, advanced users like to take advantage of modern Python tools to have more control over when and where code is installed on their system.
 
-This guide will demonstrate how to install everything your computer needs using either traditional tools like pipenv or modern alternatives like uv.llation
-
-While there are numerous ways to install and configure Python for data analysis, advanced users like to take advantage of modern Python tools to have more control over when and where code is installed on their system.
-
-This guide will demonstrate how to install everything your computer needs using either traditional tools like pipenv or modern alternatives like uv.
+This guide provides comprehensive setup instructions using [uv](https://docs.astral.sh/uv/), a fast and modern Python package manager that simplifies dependency management and virtual environments.
 
 ```{contents} Sections
   :depth: 1
   :local:
 ```
-
-## A command-line interface/_templates/nav.html
-```
-
-# Advanced installation
 
 While there are numerous ways to install and configure Jupyter notebooks, advanced users like to take advantage of Python’s power tools to have more control over when and where code is installed on their system.
 
@@ -67,9 +58,11 @@ Instructions for both new installations and upgrades can be found [here](https:/
 
 ## Package and environment managers
 
-Modern Python development benefits from using package managers that handle dependencies and virtual environments automatically. We'll cover two popular options: uv (recommended for new projects) and pipenv (traditional approach).
+## Python Package Management with uv
 
-### Option 1: uv (Recommended)
+Modern Python development benefits from using package managers that handle dependencies and virtual environments automatically. We recommend [uv](https://docs.astral.sh/uv/) for all users because it's fast, reliable, and simple to use.
+
+### Installing uv
 
 [uv](https://docs.astral.sh/uv/) is a modern, fast Python package manager written in Rust that makes dependency management simple and reliable. It automatically handles virtual environments and is significantly faster than traditional tools.
 

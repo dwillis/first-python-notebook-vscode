@@ -43,7 +43,7 @@ If nothing happens, that's good. It means you have pandas installed and ready to
 ```{note}
 Since pandas is created by a third party independent from the core Python developers, it wouldn't be installed by default in a basic Python installation.
 
-If you followed the VS Code setup chapter and used uv to set up your project, pandas should already be installed. If your Python environment doesn't have pandas, you can install it by opening the VS Code terminal (`View > Terminal`) and running `uv add pandas` (if using uv) or `pip install pandas` (if using pip).
+If you followed the VS Code setup chapter and used uv to set up your project, pandas should already be installed. If your Python environment doesn't have pandas, you can install it by opening the VS Code terminal (`View > Terminal`) and running `uv add pandas`.
 ```
 
 Return to your import section and rewrite it like this:

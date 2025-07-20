@@ -16,10 +16,10 @@ Examples of data journalism projects that could be developed using VS Code inclu
 
 You can find thousands of Python projects on [GitHub](https://github.com/search?q=language%3APython+data+analysis&type=Repositories) that use VS Code for development, including projects by [The New York Times](https://github.com/nytimes), [FiveThirtyEight](https://github.com/fivethirtyeight), [BuzzFeed News](https://github.com/BuzzFeedNews), and many others.
 
-There are several ways to set up Python development in VS Code. Since this tutorial is designed for beginners, we'll show you how to install VS Code and set up a Python environment that includes all the tools you need for data analysis.
+There are several ways to set up Python development in VS Code. This tutorial uses [uv](https://docs.astral.sh/uv/), a fast and modern Python package manager that makes dependency management simple and reliable. We'll walk you through installing VS Code, Python, uv, and all the tools you need for data analysis.
 
 ```{note}
-Advanced users who prefer command-line tools can still follow this tutorial, but may want to use their existing Python environments. The code examples will work in any Python environment with pandas and other data analysis libraries installed.
+We recommend uv for all users because it automatically manages Python installations and virtual environments, preventing common setup issues. Advanced users familiar with other tools (conda, pipenv, etc.) can adapt the examples, but following the uv approach will give you the smoothest experience.
 ```
 
 ## Install Visual Studio Code
@@ -77,42 +77,94 @@ This extension enables:
 - Data viewer for pandas DataFrames
 - Notebook diffing and merge capabilities
 
+## Install uv (Python Package Manager)
+
+Before setting up Python, we'll install uv, which will handle Python installation and package management for us. This approach ensures you get the latest Python version and eliminates common environment issues.
+
+Open your terminal or command prompt and run the appropriate command for your operating system:
+
+**On macOS and Linux:**
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+**On Windows:**
+```bash
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+After installation, restart your terminal or command prompt to ensure uv is available.
+
+**Verify installation:**
+```bash
+uv --version
+```
+
+You should see the uv version number, confirming it's installed correctly.
+
+## Set Up Your Project with uv
+
+Now we'll create a new Python project and install all required packages. uv will automatically download and set up the correct Python version for you.
+
+1. **Create your project directory:**
+```bash
+uv init first-python-notebook
+cd first-python-notebook
+```
+
+2. **Install required packages:**
+```bash
+uv add pandas matplotlib seaborn jupyter altair
+```
+
+This command will:
+- Download and install Python 3.12+ if needed
+- Create a virtual environment automatically
+- Install all required packages for data analysis
+- Create a `pyproject.toml` file to track dependencies
+
+The installation may take a few minutes the first time as uv downloads Python and packages.
+
 ## Set Up Python Environment
 
-VS Code works with any Python installation on your system. If you don't have Python installed:
+Now we'll install uv, which will handle both Python installation and package management for us.
 
-### For Beginners: Python from python.org
+## Install uv
 
-1. Visit [python.org](https://www.python.org/downloads/)
-2. Download Python 3.8 or newer
-3. Run the installer and make sure to check "Add Python to PATH"
-
-### For Advanced Users: Anaconda, Miniconda, or uv
-
-If you're familiar with Python environments, you can use:
-- [uv](https://docs.astral.sh/uv/) (recommended - fast and modern Python package manager)
-- [Anaconda](https://www.anaconda.com/products/distribution) (includes many data science packages)
-- [Miniconda](https://docs.conda.io/en/latest/miniconda.html) (minimal installer)
-- [pyenv](https://github.com/pyenv/pyenv) for managing multiple Python versions
+uv is a fast Python package manager that automatically handles Python installation and virtual environments. It's the simplest way to get everything set up correctly.
 
 ## Verify Your Setup
 
-Let's verify everything is working:
+Let's verify everything is working by testing Python and our installed packages:
 
-1. Open VS Code
-2. Create a new file by pressing `Ctrl+N` (or `Cmd+N` on Mac)
-3. Save it as `test.py` (press `Ctrl+S` or `Cmd+S`)
-4. Type the following code:
-
-```python
-print("Hello, VS Code!")
+1. **Open VS Code in your project:**
+```bash
+code .
 ```
 
-5. Right-click in the editor and select "Run Python File in Terminal"
+2. **Create a test file:** Press `Ctrl+N` (or `Cmd+N` on Mac) to create a new file
+3. **Save it as `test.py`:** Press `Ctrl+S` (or `Cmd+S`) and name it `test.py`
+4. **Add test code:**
 
-You should see "Hello, VS Code!" printed in the integrated terminal at the bottom of the screen.
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import altair as alt
 
-![First Python program](/_static/vscode-hello-world.png)
+print("🎉 All packages imported successfully!")
+print(f"Python version: {pd.np.version.version}")
+print(f"pandas version: {pd.__version__}")
+print(f"altair version: {alt.__version__}")
+```
+
+5. **Run the file:** Right-click in the editor and select "Run Python File in Terminal"
+
+You should see success messages and version numbers printed in the integrated terminal at the bottom of the screen.
+
+```{tip}
+If you see import errors, make sure VS Code has selected the correct Python interpreter (see the next section on environment selection).
+```
 
 ## Install Required Packages
 
@@ -128,11 +180,6 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 **On Windows:**
 ```bash
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-
-**Alternative installation via pip:**
-```bash
-pip install uv
 ```
 
 Once uv is installed, create a new Python project and install the required packages:
@@ -159,7 +206,7 @@ uv is much faster than pip and provides better dependency resolution. It automat
 
 ## Your First Interactive Session
 
-VS Code supports multiple ways to work with Python and Jupyter notebooks. If you set up your project with uv, make sure you're working in the project directory:
+VS Code provides excellent support for working with Python and Jupyter notebooks. Now that you've set up your project with uv, make sure you're working in the project directory:
 
 ```bash
 cd first-python-notebook
