@@ -146,9 +146,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import altair as alt
+import sys
 
 print("🎉 All packages imported successfully!")
-print(f"Python version: {pd.np.version.version}")
+print(f"Python version: {sys.version}")
 print(f"pandas version: {pd.__version__}")
 print(f"altair version: {alt.__version__}")
 ```
