@@ -67,6 +67,5 @@ export
 :name: appendix
 :numbered:
 
-appendix/index
 about
 ```
