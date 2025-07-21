@@ -125,19 +125,14 @@ This command will:
 
 The installation may take a few minutes the first time as uv downloads Python and packages.
 
-## Set Up Python Environment
-
-Now we'll install uv, which will handle both Python installation and package management for us.
-
-## Install uv
-
-uv is a fast Python package manager that automatically handles Python installation and virtual environments. It's the simplest way to get everything set up correctly.
-
 ## Verify Your Setup
 
 Let's verify everything is working by testing Python and our installed packages:
 
 1. **Open VS Code in your project:**
+
+Launch VS Code and then open the first-python-notebook directory, or from the command line in that directory:
+
 ```bash
 code .
 ```
