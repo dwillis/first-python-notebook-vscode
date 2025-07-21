@@ -162,51 +162,9 @@ You should see success messages and version numbers printed in the integrated te
 If you see import errors, make sure VS Code has selected the correct Python interpreter (see the next section on environment selection).
 ```
 
-## Install Required Packages
-
-We'll need to install some Python packages for data analysis. This tutorial uses [uv](https://docs.astral.sh/uv/), a fast Python package manager that makes dependency management simple and reliable.
-
-First, install uv if you haven't already. Open the integrated terminal in VS Code (`View > Terminal` or `Ctrl+`` `) and run:
-
-**On macOS and Linux:**
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-**On Windows:**
-```bash
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-
-Once uv is installed, create a new Python project and install the required packages:
-
-```bash
-uv init first-python-notebook
-cd first-python-notebook
-uv add pandas matplotlib seaborn jupyter altair
-```
-
-This will:
-- Create a new Python project with proper dependency management
-- Install the required packages:
-  - `pandas` for data manipulation
-  - `matplotlib` and `seaborn` for plotting  
-  - `jupyter` for notebook support
-  - `altair` for interactive visualizations
-- Create a `pyproject.toml` file to track your dependencies
-- Set up a virtual environment automatically
-
-```{note}
-uv is much faster than pip and provides better dependency resolution. It automatically manages virtual environments for you, so you don't need to worry about environment conflicts. If you prefer other tools like Anaconda or pip, the code examples will still work, but uv provides a more streamlined experience.
-```
-
 ## Your First Interactive Session
 
-VS Code provides excellent support for working with Python and Jupyter notebooks. Now that you've set up your project with uv, make sure you're working in the project directory:
-
-```bash
-cd first-python-notebook
-```
+VS Code provides excellent support for working with Python and Jupyter notebooks. 
 
 ### Python Interactive Window
 
@@ -232,7 +190,9 @@ You can also create traditional Jupyter notebooks:
 2. Type "Jupyter: Create New Jupyter Notebook"
 3. Press Enter
 
-This creates a new `.ipynb` notebook file where you can add cells and run them interactively. VS Code provides the full notebook experience including:
+This creates a new `.ipynb` notebook file where you can add cells and run them interactively. Save it and call it `notebook.ipynb`.
+
+VS Code provides the full notebook experience including:
 - Rich output display (plots, tables, HTML)
 - Variable explorer
 - Kernel management
@@ -245,37 +205,10 @@ After installing packages, it's crucial to ensure VS Code uses the correct Pytho
 
 ### For Python Files (.py)
 
-When working with Python files, VS Code needs to know which Python interpreter to use:
-
-1. **Automatic Selection**: VS Code usually detects your Python installation automatically
-2. **Manual Selection**: If needed, press `Ctrl+Shift+P` (or `Cmd+Shift+P`) and type "Python: Select Interpreter"
-3. **Choose Your Environment**: Select the Python installation that has your packages installed:
-   - If using uv: Look for the interpreter in your project's `.venv` folder
-   - If using Anaconda: Choose the anaconda or miniconda interpreter
-   - If using system Python: Choose the global Python installation
-
-4. **Verify Selection**: Check the bottom-left status bar - it should show your selected Python version
+When working with Python files, VS Code needs to know which Python interpreter to use. If you have `uv` installed, it will do this automatically.
 
 ### For Jupyter Notebooks (.ipynb)
 
-Notebooks use "kernels" (similar to interpreters) to run code:
-
-1. **Initial Kernel Selection**: When you create or open a notebook, VS Code may prompt you to select a kernel
-2. **Manual Kernel Selection**: Click the kernel name in the top-right corner of the notebook to change it
-3. **Choose the Right Kernel**: Select the same Python environment where you installed packages
-4. **Verify Connection**: A green dot next to the kernel name means it's connected and ready
-
-### Troubleshooting Environment Issues
-
-If your imports don't work or packages aren't found:
-
-1. **Check Active Environment**: Verify VS Code is using the environment where you installed packages
-2. **Restart Kernel**: In notebooks, use "Restart Kernel" from the kernel menu
-3. **Refresh Interpreters**: Use Command Palette → "Python: Refresh" to update the interpreter list
-4. **Reinstall Packages**: If still having issues, reinstall packages in the correct environment
-
-```{tip}
-**Pro tip**: The status bar (bottom of VS Code) always shows your active Python interpreter. Make sure it matches the environment where you installed your packages!
-```
+Notebooks use "kernels" (similar to interpreters) to run code. When you start a new notebook, you can select a new kernel. You should be able to pick "Python Environments" and then the first choice should be `first-python-notebook`. Click on that.
 
 Now you're ready to start learning Python for data analysis! The next chapter will introduce you to working with Jupyter notebooks in VS Code.
