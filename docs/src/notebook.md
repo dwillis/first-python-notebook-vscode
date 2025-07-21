@@ -4,59 +4,52 @@
     <iframe class="responsive-iframe"  src="https://www.youtube.com/embed/VqCgcpAypFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-Once VS Code is installed with the Python extension, you're ready to start writing and running Python code. VS Code offers several ways to work with Python, from simple scripts to interactive notebook-style development.
+Now that you have VS Code set up with Python and all required packages, it's time to start writing and running Python code. This chapter will teach you the fundamentals of Python programming using VS Code's interactive features.
+
+```{note}
+**Prerequisites**: Make sure you've completed the [VS Code Setup](vscode_setup.md) chapter first. You should have:
+- VS Code installed with Python and Jupyter extensions
+- uv installed and a `first-python-notebook` project created
+- All required packages (pandas, matplotlib, seaborn, jupyter, altair) installed
+- VS Code opened in your project directory
+```
+
+## Your First Python Program
 
 Let's start by creating your first Python file. In VS Code:
 
 1. Press `Ctrl+N` (or `Cmd+N` on Mac) to create a new file
 2. Save it as `my_first_analysis.py` by pressing `Ctrl+S` (or `Cmd+S` on Mac)
-3. Choose a location on your computer to save it
 
-![VS Code new file](/_static/vscode-new-file.png)
-
-```{note}
-If VS Code prompts you to select a Python interpreter, choose the Python installation you set up in the previous chapter. This tells VS Code which Python environment to use when running your code.
-
-**How to select the right interpreter:**
-1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
-2. Type "Python: Select Interpreter"  
-3. Choose the Python installation where you installed packages (pandas, matplotlib, etc.)
-4. Look for the interpreter path that matches your setup (e.g., `.venv`, `anaconda3`, or system Python)
-
-The selected interpreter will be shown in the bottom-left status bar of VS Code.
-```
-
-Now you're ready to write your first line of Python code. VS Code provides an excellent environment for both learning and professional Python development.
-
-You should see an empty editor window. That means you are all set up and ready to write Python. If you've never done it before, you can remain calm. We can start out slow with some simple math.
-
-Type the following into the editor, then right-click and select "Run Python File in Terminal" or press `F5`. The number four should appear in the terminal at the bottom of the screen.
+You should see an empty editor window. Let's start with some simple math. Type the following into the editor, then right-click and select "Run Python File in Terminal" or press `F5`:
 
 ```python
 print(2+2)
 ```
 
-There. Not so bad, right? You have just written your first line of code. When you run a Python file, VS Code executes all the code in the file and displays the output in the integrated terminal. In the jargon of Python, you have entered two [integers](https://docs.python.org/3/library/functions.html#int) and combined them using [the addition operator](https://docs.python.org/3/library/operator.html#mapping-operators-to-functions).
+The number four should appear in the terminal at the bottom of the screen. Congratulations! You've just written your first line of code. In Python terminology, you've used two [integers](https://docs.python.org/3/library/functions.html#int) and combined them with [the addition operator](https://docs.python.org/3/library/operator.html#mapping-operators-to-functions).
 
 <div class="responsive-iframe-container">
     <iframe class="responsive-iframe" src="https://www.youtube.com/embed/g_pJejF0GmU?si=Dw5X91-vINPaSBOQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-Now try writing your own math problem. Maybe `print(2+3)` or `print(2+200)`. Whatever strikes your fancy. After you've typed it in, run the file again. This workflow of writing Python code and then running it is the rhythm of working with Python in VS Code.
+Now try writing your own math problem. Maybe `print(2+3)` or `print(2+200)`. After you've typed it in, run the file again to see the result.
 
-If you get an error after you run your code, look carefully at your code and check whether it exactly matches what's been written in the example. Here's an example of an error that I've added intentionally:
+### Understanding Errors
 
-```python
-print(2+2+)
-```
-
-Don't worry. Code crashes are a normal part of life for computer programmers. They're usually caused by small typos that can be quickly corrected. 
+If you get an error when running your code, don't worry! Code errors are a normal part of programming. Here's an example of an error:
 
 ```python
-print(2+2+2)
+print(2+2+)  # This has an error!
 ```
 
-The best thing you can do is remain calm and carefully read the error message. It usually contains clues that can help you fix the problem.
+This will cause an error because the addition operator needs a number after it. The correct version would be:
+
+```python
+print(2+2+2)  # This works correctly
+```
+
+The best approach when you encounter errors is to remain calm and carefully read the error message - it usually contains helpful clues for fixing the problem.
 
 ## Interactive Python Development
 
@@ -195,53 +188,21 @@ The most common way to address that problem in journalism is to substitute in a 
 
 ## Working with Jupyter Notebooks in VS Code
 
-In addition to interactive Python files, VS Code also supports traditional Jupyter notebooks (.ipynb files). You can create one by:
+VS Code also supports traditional Jupyter notebooks (.ipynb files), which provide a more interactive experience with rich output display. You can create one by:
 
 1. Opening the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`)
 2. Typing "Jupyter: Create New Jupyter Notebook"
 3. Pressing Enter
 
-This creates a notebook file where you can add both code and markdown cells, just like in traditional Jupyter environments, but with all the benefits of VS Code's editor features.
-
-### Selecting the Right Kernel
-
-When you create or open a notebook, you need to select a Python kernel (the engine that runs your code):
-
-1. **Automatic Selection**: VS Code may automatically select a kernel based on your workspace
-2. **Manual Selection**: Click the kernel name in the **top-right corner** of the notebook
-3. **Choose Your Kernel**: Select the Python environment where you installed your packages:
-   - Look for the same Python path you selected as your interpreter
-   - If using uv: Choose the kernel from your project's `.venv` folder
-   - If using Anaconda: Choose the anaconda/miniconda kernel
-   - The kernel name should show the Python version and environment path
-
-4. **Verify Connection**: A green dot next to the kernel name means it's connected and ready to run code
-
-### Common Kernel Issues and Solutions
-
-**Problem**: "ModuleNotFoundError" when importing pandas or other packages
-
-**Solution**: 
-1. Check that you're using the correct kernel (top-right of notebook)
-2. Verify packages are installed in that environment
-3. Restart the kernel: Click kernel name → "Restart Kernel"
-
-**Problem**: Kernel won't start or keeps disconnecting
-
-**Solution**:
-1. Use Command Palette → "Python: Refresh"
-2. Try selecting a different kernel, then switch back
-3. Close and reopen the notebook file
-
-The notebook interface in VS Code allows you to:
-- Add code and markdown cells
+This creates a notebook file where you can add both code and markdown cells. VS Code provides the complete notebook experience including:
+- Rich output display (plots, tables, HTML)
+- Variable explorer
 - Run cells individually or all at once
-- View rich output including plots and tables
 - Export to various formats
-- Use VS Code's powerful editing features
+- All of VS Code's powerful editing features
 
 ```{tip}
-**Quick Check**: Before running any code, make sure the kernel name in the top-right shows the same Python environment where you installed your packages. This prevents import errors and ensures your code runs correctly.
+**Quick Check**: Make sure the kernel name in the top-right corner of the notebook matches your project environment (should show `first-python-notebook` or similar). If you need to change it, click on the kernel name and select the correct environment.
 ```
 
 ```{note}
